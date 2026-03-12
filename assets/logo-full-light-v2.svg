@@ -1,0 +1,11 @@
+<svg width="400" height="100" viewBox="0 0 400 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g transform="translate(10, 10)">
+    <g transform="scale(0.8) translate(50, 50)">
+      <path d="M0 0 L-35 -20 L-35 20 L0 40 Z" fill="#FFFFFF" fill-opacity="0.9" />
+      <path d="M0 0 L35 -20 L35 20 L0 40 Z" fill="#D45900" />
+      <path d="M0 0 L-35 -20 L0 -40 L35 -20 Z" fill="#FF6B00" />
+    </g>
+    <text x="100" y="55" fill="#FFFFFF" font-family="'Inter', -apple-system, sans-serif" font-weight="900" font-size="28" letter-spacing="-1px">INSTITUTE OF</text>
+    <text x="100" y="85" fill="#FF6B00" font-family="'Inter', -apple-system, sans-serif" font-weight="900" font-size="28" letter-spacing="-1px">DIGITAL RISK</text>
+  </g>
+</svg>

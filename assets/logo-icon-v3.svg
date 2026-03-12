@@ -1,0 +1,7 @@
+<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Modern Geometric Logo inspired by the user's overlapping squares concept -->
+  <!-- Back Square -->
+  <rect x="30" y="20" width="40" height="40" rx="4" stroke="#FF6B00" stroke-width="2" transform="rotate(45, 50, 40)" />
+  <!-- Front Square with slight offset -->
+  <rect x="35" y="45" width="40" height="40" rx="4" stroke="#121212" stroke-width="2" transform="rotate(45, 55, 65)" />
+</svg>
