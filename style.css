@@ -805,6 +805,10 @@ section {
     transform: translateY(-9px) rotate(-45deg);
 }
 
+.mobile-nav-header {
+    display: none;
+}
+
 /* ==========================================================================
    Responsive Design & Mobile Overrides
    ========================================================================== */
