@@ -184,8 +184,9 @@ section {
 }
 
 /* Innovative Hero Section */
+/* Compact Innovative Hero Section */
 .hero {
-    min-height: 100vh;
+    min-height: 80vh; /* Reduced height */
     display: flex;
     align-items: center;
     background: 
@@ -193,8 +194,17 @@ section {
         radial-gradient(at 100% 0%, rgba(0, 0, 0, 0.05) 0px, transparent 50%),
         radial-gradient(at 100% 100%, rgba(255, 107, 0, 0.05) 0px, transparent 50%),
         radial-gradient(at 0% 100%, rgba(255, 255, 255, 0.1) 0px, transparent 50%);
-    padding: 120px 0 80px 0;
+    padding: 80px 0 40px 0; /* Tighter padding */
     position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr; /* Text gets more space, visual pulls right */
+    align-items: center;
+    gap: 20px;
+    width: 100%;
 }
 
 .hero::before {
@@ -244,24 +254,25 @@ section {
     line-height: 1.5;
 }
 
-/* High-End 3D Isometric Risk Assembly */
+/* High-End 3D Isometric Risk Assembly (Compact & Right-Aligned) */
 .hero-visual {
     position: relative;
-    height: 500px;
+    height: 400px;
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end; /* Pulls to absolute right */
     align-items: center;
     perspective: 1200px;
 }
 
 .isometric-assembly {
     position: relative;
-    width: 300px;
-    height: 300px;
+    width: 260px;
+    height: 260px;
     transform: rotateX(55deg) rotateZ(45deg);
     transform-style: preserve-3d;
     animation: assemblyRotate 20s infinite linear;
+    margin-right: -20px; /* Pull into the "extra space" on the right */
 }
 
 .iso-layer {
