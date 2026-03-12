@@ -367,10 +367,23 @@ section {
     color: #888;
 }
 
+/* Modern Pillars Grid Responsiveness */
 .pillars-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 32px;
+}
+
+@media (max-width: 1024px) {
+    .pillars-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .pillars-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .pillar-card {
@@ -563,20 +576,45 @@ section {
 }
 
 .contact-form {
-    background: #F4F4F4;
-    padding: 40px;
-    border-radius: 20px;
+    background: #0A0A0A;
+    padding: 50px;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+    position: relative;
+    overflow: hidden;
 }
 
-.form-group {
-    margin-bottom: 20px;
+.contact-form::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(255, 107, 0, 0.1) 0%, transparent 50%);
+    pointer-events: none;
 }
 
-.form-group label {
-    display: block;
-    font-weight: 700;
-    margin-bottom: 8px;
-    font-size: 0.9rem;
+.contact-form h2, .contact-form label {
+    color: #fff;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 14px 18px;
+    border-radius: 12px;
+    color: #fff;
+    font-family: inherit;
+    transition: var(--transition);
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    border-color: var(--primary);
+    background: rgba(255, 255, 255, 0.08);
+    outline: none;
 }
 
 .form-group input, .form-group textarea {
@@ -765,9 +803,29 @@ section {
     transform: translateY(-8px) rotate(-45deg);
 }
 
+/* Mobile Nav Enhancements */
+.mobile-nav-header {
+    display: none;
+}
+
 @media (max-width: 768px) {
-    .mobile-menu-toggle {
+    .mobile-nav-header {
         display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 40px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-close {
+        background: transparent;
+        border: none;
+        font-size: 2.5rem;
+        color: var(--secondary);
+        cursor: pointer;
+        line-height: 1;
     }
 
     .nav-links {
@@ -776,15 +834,14 @@ section {
         position: fixed;
         top: 0;
         right: -100%;
-        width: 80%;
-        max-width: 300px;
+        width: 100%; /* Full screen width for mobile */
         height: 100vh;
         background-color: white;
-        padding: 100px 40px;
-        box-shadow: -10px 0 30px rgba(0,0,0,0.1);
-        transition: var(--transition);
+        padding: 40px;
+        box-shadow: -10px 0 50px rgba(0,0,0,0.2);
+        transition: 0.5s cubic-bezier(0.77, 0, 0.175, 1);
         z-index: 1000;
-        gap: 20px;
+        gap: 0;
     }
 
     .nav-links.active {
@@ -793,11 +850,48 @@ section {
 
     .nav-links li {
         width: 100%;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.03);
     }
+    
+    .nav-links li:first-child { border-bottom: none; } /* Mobile header */
 
     .nav-links a {
-        font-size: 1.25rem;
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 1.5rem;
+        font-weight: 700;
         display: block;
-        padding: 10px 0;
+        padding: 20px 0;
+        color: var(--secondary);
+    }
+    
+    .nav-links a.btn-primary-small {
+        margin-top: 20px;
+        text-align: center;
+        background-color: var(--primary);
+        color: white;
+        border-radius: 12px;
+    }
+
+    .hero-visual {
+        height: 300px;
+        margin-top: 40px;
+    }
+    
+    .isometric-assembly {
+        width: 180px;
+        height: 180px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    /* Fix Footer Grid for Mobile */
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .contact-grid, .about-grid, .community-content {
+        grid-template-columns: 1fr !important;
+        gap: 40px;
     }
 }

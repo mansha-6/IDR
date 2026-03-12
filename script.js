@@ -1,12 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
     // --- Mobile Menu Toggle ---
-    const menuToggle = document.querySelector('.mobile-menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+    const navClose = document.getElementById('nav-close');
     
     if (menuToggle && navLinks) {
         menuToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
             menuToggle.classList.toggle('open');
+        });
+    }
+
+    if (navClose && navLinks && menuToggle) {
+        navClose.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            menuToggle.classList.remove('open');
         });
     }
 
