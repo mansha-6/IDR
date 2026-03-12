@@ -244,59 +244,60 @@ section {
     line-height: 1.5;
 }
 
-/* Modern Risk Grid Visual (Side-by-side beside text) */
+/* High-End 3D Isometric Risk Assembly */
 .hero-visual {
     position: relative;
-    height: 400px;
+    height: 500px;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    perspective: 1200px;
 }
 
-.risk-grid-container {
+.isometric-assembly {
     position: relative;
-    width: 280px;
-    height: 280px;
+    width: 300px;
+    height: 300px;
+    transform: rotateX(55deg) rotateZ(45deg);
+    transform-style: preserve-3d;
+    animation: assemblyRotate 20s infinite linear;
 }
 
-.grid-node {
+.iso-layer {
     position: absolute;
-    width: 80px;
-    height: 80px;
-    border-radius: 12px;
-    border: 1.5px solid var(--primary);
+    inset: 0;
+    border: 2px solid var(--primary);
     background: rgba(255, 107, 0, 0.05);
-    backdrop-filter: blur(5px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: var(--transition);
-    animation: nodeFloat 6s infinite ease-in-out;
+    backdrop-filter: blur(4px);
+    border-radius: 12px;
+    transform-style: preserve-3d;
 }
 
-.grid-node.black {
+.iso-layer.bottom { transform: translateZ(-40px); opacity: 0.3; }
+.iso-layer.middle { transform: translateZ(0); }
+.iso-layer.top { 
+    transform: translateZ(40px); 
     border-color: var(--secondary);
-    background: rgba(18, 18, 18, 0.02);
+    background: rgba(255, 255, 255, 0.05);
 }
 
-.node-1 { top: 0; left: 0; animation-delay: 0s; }
-.node-2 { top: 0; right: 0; animation-delay: 1.5s; }
-.node-3 { bottom: 0; left: 0; animation-delay: 3s; }
-.node-4 { bottom: 0; right: 0; animation-delay: 4.5s; }
-
-.risk-grid-line {
+.iso-node {
     position: absolute;
+    width: 40px;
+    height: 40px;
     background: var(--primary);
-    opacity: 0.1;
+    box-shadow: 0 0 20px var(--primary);
+    transform: translateZ(20px);
+    border-radius: 4px;
 }
 
-.line-h { width: 100%; height: 1px; top: 50%; left: 0; }
-.line-v { height: 100%; width: 1px; left: 50%; top: 0; }
+.node-top-left { top: -20px; left: -20px; }
+.node-bottom-right { bottom: -20px; right: -20px; }
 
-@keyframes nodeFloat {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-15px) rotate(5deg); }
+@keyframes assemblyRotate {
+    0% { transform: rotateX(55deg) rotateZ(0deg); }
+    100% { transform: rotateX(55deg) rotateZ(360deg); }
 }
 
 /* About Section */
@@ -582,54 +583,114 @@ section {
 }
 
 /* Footer */
+/* Premium Footer Design */
 .footer {
-    background-color: #000000;
-    color: white;
-    padding: 80px 0 40px 0;
+    background-color: #000;
+    padding: 100px 0 40px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
 }
 
-.hero-content {
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--primary), transparent);
+}
+
+.footer-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: 40px;
+    grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+    gap: 60px;
+    margin-bottom: 80px;
 }
 
-.footer-logo {
-    height: 40px;
-    margin-bottom: 20px;
+.footer-brand p {
+    color: #888;
+    margin-top: 20px;
+    line-height: 1.6;
 }
 
-.footer h4 {
-    margin-bottom: 20px;
+.footer-heading {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: #fff;
 }
 
-.footer-links ul {
+.footer-list {
     list-style: none;
 }
 
-.footer-links li {
-    margin-bottom: 10px;
+.footer-list li {
+    margin-bottom: 12px;
 }
 
-.footer-links a {
-    color: #999;
+.footer-list a {
+    color: #888;
     text-decoration: none;
     transition: var(--transition);
+    font-size: 0.95rem;
 }
 
-.footer-links a:hover {
-    color: white;
+.footer-list a:hover {
+    color: var(--primary);
+    padding-left: 5px;
 }
 
-.footer-copy {
-    grid-column: 1 / span 3;
-    margin-top: 60px;
+.footer-newsletter h4 {
+    margin-bottom: 15px;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.newsletter-form input {
+    flex: 1;
+    background: #111;
+    border: 1px solid #222;
+    padding: 12px 16px;
+    color: #fff;
+    border-radius: 8px;
+    font-family: inherit;
+}
+
+.newsletter-form .btn {
+    padding: 12px 20px;
+}
+
+.footer-bottom {
+    padding-top: 40px;
     border-top: 1px solid #222;
-    padding-top: 20px;
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     color: #666;
     font-size: 0.9rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 20px;
+}
+
+.social-links a {
+    color: #666;
+    transition: var(--transition);
+    font-size: 1.2rem;
+}
+
+.social-links a:hover {
+    color: var(--primary);
+    transform: translateY(-3px);
 }
 
 /* Responsive Design */
